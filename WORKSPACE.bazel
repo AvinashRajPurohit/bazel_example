@@ -1,0 +1,43 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+rules_python_version = "740825b7f74930c62f44af95c9a4c1bd428d2c53" # Latest @ 2021-06-23
+
+http_archive(
+    name = "rules_python",
+    sha256 = "3474c5815da4cb003ff22811a36a11894927eda1c2e64bf2dac63e914bfdf30f",
+    strip_prefix = "rules_python-{}".format(rules_python_version),
+    url = "https://github.com/bazelbuild/rules_python/archive/{}.zip".format(rules_python_version),
+)
+
+# load("@bazel_tools//tools/python:toolchain.bzl", "py_runtime_pair")
+
+# py_runtime(
+#     name = "python3.6",
+#     interpreter_path = "/usr/bin/python3.6",
+#     python_version = "PY3",   
+# )
+
+# py_runtime_pair(
+#     name = "py3.6",
+#     py3_runtime = ":python3.6",
+# )
+
+# toolchain(
+#     name = "py3-tc",
+#     toolchain = ":py3.6",
+#     toolchain_type = "@bazel_tools//tools/python:toolchain_type",
+# )
+
+# load("@rules_python//python:pip.bzl", "pip_parse")
+
+
+# pip_parse(
+#     name="my_deps",
+#     python_interpreter = 'python3.6',
+#     requirements = "//third_party:requirements.txt",
+
+# )
+
+# load("@my_deps//:requirements.bzl", "install_deps")
+# # Call it to define repos for your requirements.
+# install_deps()
